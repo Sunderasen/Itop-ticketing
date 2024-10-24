@@ -1,0 +1,23 @@
+Steps to be Performed: 
+
+Step 1: Install apache and mod_ssl 
+
+dnf install -y httpd mod_ssl wget unzip bash-completion 
+
+Step 2: Install PHP 8.1 
+
+dnf module list php 
+dnf module -y enable php:8.1 
+dnf install php php-mysqlnd php-xml php-cli php-soap php-ldap php-gd php-pecl-zip php-mbstring php-curl graphviz 
+
+Step 3: Download Itop Package from Sourceforge. 
+
+wget https://sourceforge.net/projects/itop/files/latest/download?source=directory -O itop.zip 
+
+Step 4: Configure DB 
+
+dnf install mysql-server 
+> create database itop character set utf8 collate utf8_bin; 
+> create user 'itop'@'%' identified by 'CriticalP!23'; 
+> grant all privileges on itop.* to 'itop'@'%'; 
+> flush privileges; 
